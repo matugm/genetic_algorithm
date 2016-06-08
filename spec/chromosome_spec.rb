@@ -1,4 +1,4 @@
-require_relative 'chromosome'
+require_relative '../chromosome'
 
 describe Chromosome do
   it 'has a fitness method' do

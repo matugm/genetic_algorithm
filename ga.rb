@@ -40,7 +40,7 @@ class GeneticAlgorithm
   end
 
   def run(chromosome, p_cross, p_mutation, iterations = 100)
-    # initial pop
+    # initial population
     population = 100.times.map { generate(chromosome) }
 
     current_generation = population
@@ -54,7 +54,10 @@ class GeneticAlgorithm
         if rand < p_cross
           selection = crossover(selection, rand(0..chromosome::SIZE), chromosome)
         end
+
         # mutation
+        selection[0].mutate(p_mutation)
+        selection[1].mutate(p_mutation)
 
         next_generation << selection[0] << selection[1]
       }
@@ -68,6 +71,6 @@ class GeneticAlgorithm
     # return best solution
     best_fit = current_generation.max_by { |ch| ch.fitness }
 
-    puts "#{best_fit.value} => #{best_fit.fitness}"
+    "#{best_fit.value} => #{best_fit.fitness}"
   end
 end

@@ -1,5 +1,5 @@
-require_relative 'ga'
-require_relative 'chromosome'
+require_relative '../ga'
+require_relative '../chromosome'
 
 describe GeneticAlgorithm do
   let(:ga) { GeneticAlgorithm.new }
@@ -43,5 +43,14 @@ describe GeneticAlgorithm do
     expect(ga.generate_wheel(population, percentages).size).to  eq 1_000
     expect(ga.generate_wheel(population, percentages).first).to eq population.first
     expect(ga.generate_wheel(population, percentages).last).to  eq population.last
+  end
+
+  it 'crossovers two chromosomes' do
+    selection = [Chromosome.new("01011"), Chromosome.new("10101")]
+    expected  = [Chromosome.new("01001"), Chromosome.new("10111")]
+
+    crossover = ga.crossover(selection, 3, Chromosome).map(&:value)
+
+    expect(crossover).to eq expected.map(&:value)
   end
 end
