@@ -6,12 +6,16 @@ class GeneticAlgorithm
     chromosome.new(value)
   end
 
-  def select(population)
-    total       = total_fitness(population)
-    percentages = calculate_percentages(population, total)
-    wheel       = generate_wheel(population, percentages)
+  def reset_wheel
+    @total, @percentages, @wheel = nil, nil, nil
+  end
 
-    wheel.sample(2)
+  def select(population)
+    @total       ||= total_fitness(population)
+    @percentages ||= calculate_percentages(population, @total)
+    @wheel       ||= generate_wheel(population, @percentages)
+
+    @wheel.sample(2)
   end
 
   def total_fitness(population)
@@ -57,6 +61,8 @@ class GeneticAlgorithm
 
       current_generation = next_generation
       next_generation    = []
+
+      reset_wheel
     }
 
     # return best solution
