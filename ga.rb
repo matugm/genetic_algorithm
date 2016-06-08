@@ -44,14 +44,24 @@ class GeneticAlgorithm
 
     iterations.times {
       (population.size / 2).times {
-        # selection
-        # crossover
+
+        selection = select(current_generation)
+
+        if rand < p_cross
+          selection = crossover(selection, rand(0..chromosome::SIZE), chromosome)
+        end
         # mutation
+
+        next_generation << selection[0] << selection[1]
       }
 
-      # next generation
+      current_generation = next_generation
+      next_generation    = []
     }
 
     # return best solution
+    best_fit = current_generation.max_by { |ch| ch.fitness }
+
+    puts "#{best_fit.value} => #{best_fit.fitness}"
   end
 end
