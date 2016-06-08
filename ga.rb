@@ -28,6 +28,13 @@ class GeneticAlgorithm
     end
   end
 
+  def crossover(selection, index, chromosome)
+    cr1 = selection[0][0...index] + selection[1][index..-1]
+    cr2 = selection[1][0...index] + selection[0][index..-1]
+
+    [chromosome.new(cr1), chromosome.new(cr2)]
+  end
+
   def run(chromosome, p_cross, p_mutation, iterations = 100)
     # initial pop
     population = 100.times.map { generate(chromosome) }
