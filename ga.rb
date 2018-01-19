@@ -47,10 +47,14 @@ class GeneticAlgorithm
     next_generation    = []
 
     iterations.times {
+      # save best fit
+      best_fit = current_generation.max_by { |ch| ch.fitness }.dup
+
       (population.size / 2).times {
 
         selection = select(current_generation)
 
+        # crossover
         if rand < p_cross
           selection = crossover(selection, rand(0..chromosome::SIZE), chromosome)
         end
@@ -64,6 +68,9 @@ class GeneticAlgorithm
 
       current_generation = next_generation
       next_generation    = []
+
+      # Make sure best fit chromosome carries over
+      current_generation << best_fit
 
       reset_wheel
     }
