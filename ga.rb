@@ -6,30 +6,8 @@ class GeneticAlgorithm
     chromosome.new(value)
   end
 
-  def reset_wheel
-    @total, @percentages, @wheel = nil, nil, nil
-  end
-
   def select(population)
-    @total       ||= total_fitness(population)
-    @percentages ||= calculate_percentages(population, @total)
-    @wheel       ||= generate_wheel(population, @percentages)
-
-    @wheel.sample(2)
-  end
-
-  def total_fitness(population)
-    population.inject(0) { |sum, ch| sum + ch.fitness }
-  end
-
-  def calculate_percentages(population, total_fitness)
-    population.map { |ch| (ch.fitness / total_fitness.to_f * 1000).to_i }
-  end
-
-  def generate_wheel(population, percentages)
-    percentages.flat_map.with_index do |percent, idx|
-      percent.times.map { population[idx] }
-    end
+    population.sample(2)
   end
 
   def crossover(selection, index, chromosome)
@@ -71,8 +49,6 @@ class GeneticAlgorithm
 
       # Make sure best fit chromosome carries over
       current_generation << best_fit
-
-      reset_wheel
     }
 
     # return best solution
