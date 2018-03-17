@@ -1,5 +1,4 @@
-[Article on CodeShip](https://blog.codeship.com/using-genetic-algorithms-in-ruby/?utm_source=CodeshipNewsletter&utm_source=hs_email&utm_campaign=Weekly%20Newsletters&utm_medium=email&utm_content=61364102&_hsenc=p2ANqtz--b0YCcPYozIggC409w7DGk7gc9U7bMYP18oiCoDUh2RIKiWqqiDFJpAchwsylXVsi0RJvqEjKaI9RRS3l7kG4dW3Trtw&_hsmi=61364019
-)
+[Article on CodeShip](https://blog.codeship.com/using-genetic-algorithms-in-ruby/)
 
 # Using Genetic Algorithms in Ruby
 
@@ -203,5 +202,4 @@ In this article, you learned that genetic algorithms are used to solve optimizat
 
 If you found this article interesting, do us a favor and share this post with as many people as you can so they can enjoy it, too!
 
-[Article on CodeShip](https://blog.codeship.com/using-genetic-algorithms-in-ruby/?utm_source=CodeshipNewsletter&utm_source=hs_email&utm_campaign=Weekly%20Newsletters&utm_medium=email&utm_content=61364102&_hsenc=p2ANqtz--b0YCcPYozIggC409w7DGk7gc9U7bMYP18oiCoDUh2RIKiWqqiDFJpAchwsylXVsi0RJvqEjKaI9RRS3l7kG4dW3Trtw&_hsmi=61364019
-)
+[Article on CodeShip](https://blog.codeship.com/using-genetic-algorithms-in-ruby/)
